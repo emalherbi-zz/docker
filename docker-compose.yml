@@ -1,0 +1,36 @@
+php8:
+  container_name: php8
+  build: ./php8/
+  links:
+    - db
+  ports:
+    - "8001:80"
+    - "8443:443"
+  volumes:
+    - /Users/emalherbi/Sites/docker/www:/var/www/html
+php7:
+  container_name: php7
+  build: ./php7/
+  links:
+    - db
+  ports:
+    - "7001:80"
+    - "7443:443"
+  volumes:
+    - /Users/emalherbi/Sites/docker/www:/var/www/html
+db:
+  container_name: db
+  image: mariadb
+  ports:
+    - "8306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root
+phpmyadmin:
+  container_name: phpmyadmin
+  image: phpmyadmin/phpmyadmin
+  links:
+    - db
+  ports:
+    - "8002:80"
