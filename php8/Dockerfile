@@ -9,7 +9,6 @@ RUN apt-get install -y --no-install-recommends \
   libpq-dev \
   libzip4 \
   libzip-dev \
-  && rm -rf /var/lib/apt/lists/* \
   && docker-php-ext-install zip 
 
 RUN docker-php-ext-install mysqli \
@@ -20,7 +19,11 @@ RUN pecl install sqlsrv pdo_sqlsrv
 RUN echo "extension=sqlsrv.so" >> /usr/local/etc/php/php.ini
 RUN echo "extension=pdo_sqlsrv.so" >> /usr/local/etc/php/php.ini
 
+RUN echo "date.timezone = America/Sao_Paulo" >> /usr/local/etc/php/php.ini
+
 RUN a2enmod rewrite
+
+RUN rm -rf /var/lib/apt/lists/*
 
 ADD 000-default.conf /etc/apache2/sites-available/
 

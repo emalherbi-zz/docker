@@ -18,6 +18,16 @@ php7:
     - "7443:443"
   volumes:
     - /Users/emalherbi/Sites/docker/www:/var/www/html
+php5:
+  container_name: php5
+  build: ./php5/
+  links:
+    - db
+  ports:
+    - "5001:80"
+    - "5443:443"
+  volumes:
+    - /Users/emalherbi/Sites/docker/www:/var/www/html
 db:
   container_name: db
   image: mariadb

@@ -1,4 +1,4 @@
-FROM php:7-apache
+FROM php:5-apache
 
 RUN apt-get update 
 
@@ -11,13 +11,17 @@ RUN apt-get install -y --no-install-recommends \
   libzip-dev \
   && docker-php-ext-install zip 
 
-RUN docker-php-ext-install mysqli \
-  && docker-php-ext-install pdo_mysql \
-  && rm -rf /var/lib/apt/lists/*
+RUN docker-php-ext-install mysql \
+  && docker-php-ext-install mysqli \
+  && docker-php-ext-install pdo_mysql
 
-RUN pecl install sqlsrv pdo_sqlsrv
-RUN echo "extension=sqlsrv.so" >> /usr/local/etc/php/php.ini
-RUN echo "extension=pdo_sqlsrv.so" >> /usr/local/etc/php/php.ini
+RUN apt-get install -y apt-utils freetds-dev 
+
+RUN docker-php-ext-configure mssql --with-libdir=lib/x86_64-linux-gnu && \
+  docker-php-ext-install mssql
+
+RUN docker-php-ext-configure pdo_dblib --with-libdir=lib/x86_64-linux-gnu && \
+  docker-php-ext-install pdo_dblib
 
 RUN echo "date.timezone = America/Sao_Paulo" >> /usr/local/etc/php/php.ini
 
