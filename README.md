@@ -2,11 +2,11 @@
 
 ## Before installation
 
-Before installation change this [line](https://github.com/emalherbi/docker-php-7/blob/master/docker-compose.yml#L10).
+Before installation change this [line](https://github.com/emalherbi/docker/blob/main/docker-compose.yml).
 
 ```yml
 volumes:
-  - /home/eduardo/Sites/docker/www:/var/www/html
+  - /Users/emalherbi/Sites/www:/var/www/html
 ```
 
 ## Installation
