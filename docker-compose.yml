@@ -7,7 +7,7 @@ php8:
     - "8001:80"
     - "8443:443"
   volumes:
-    - /Users/emalherbi/Sites/docker/www:/var/www/html
+    - /home/eduardo/Sites/www:/var/www/html
 php7:
   container_name: php7
   build: ./php7/
@@ -17,7 +17,7 @@ php7:
     - "7001:80"
     - "7443:443"
   volumes:
-    - /Users/emalherbi/Sites/docker/www:/var/www/html
+    - /home/eduardo/Sites/www:/var/www/html
 php5:
   container_name: php5
   build: ./php5/
@@ -27,7 +27,7 @@ php5:
     - "5001:80"
     - "5443:443"
   volumes:
-    - /Users/emalherbi/Sites/docker/www:/var/www/html
+    - /home/eduardo/Sites/www:/var/www/html
 db:
   container_name: db
   image: mariadb

@@ -6,7 +6,7 @@ Before installation change this [line](https://github.com/emalherbi/docker/blob/
 
 ```yml
 volumes:
-  - /Users/emalherbi/Sites/www:/var/www/html
+  - /home/eduardo/Sites/www:/var/www/html
 ```
 
 ## Installation
