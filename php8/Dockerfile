@@ -6,6 +6,7 @@ RUN apt-get install -y --no-install-recommends \
   unzip \
   unixodbc-dev \
   unixodbc \
+  libpng-dev \
   libpq-dev \
   libzip4 \
   libzip-dev \
@@ -13,6 +14,7 @@ RUN apt-get install -y --no-install-recommends \
 
 RUN docker-php-ext-install mysqli \
   && docker-php-ext-install pdo_mysql \
+  && docker-php-ext-install gd \
   && rm -rf /var/lib/apt/lists/*
 
 RUN pecl install sqlsrv pdo_sqlsrv
