@@ -4,7 +4,7 @@ php8:
   links:
     - db
   ports:
-    - "8001:80"
+    - "8100:80"
     - "8443:443"
   volumes:
     - ../www:/var/www/html
@@ -14,7 +14,7 @@ php7:
   links:
     - db
   ports:
-    - "7001:80"
+    - "7100:80"
     - "7443:443"
   volumes:
     - ../www:/var/www/html
@@ -24,7 +24,7 @@ php5:
   links:
     - db
   ports:
-    - "5001:80"
+    - "5100:80"
     - "5443:443"
   volumes:
     - ../www:/var/www/html
@@ -43,4 +43,4 @@ phpmyadmin:
   links:
     - db
   ports:
-    - "8002:80"
+    - "8101:80"
