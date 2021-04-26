@@ -2,7 +2,7 @@
 
 ## Before installation
 
-Before installation change this [line](https://github.com/emalherbi/docker/blob/main/docker-compose.yml#L10).
+Before installation change this [line](https://github.com/emalherbi/docker/blob/main/docker-compose.yml).
 
 ```yml
 volumes:
