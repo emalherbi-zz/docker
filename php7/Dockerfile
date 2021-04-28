@@ -4,13 +4,15 @@ RUN apt-get update
 
 RUN apt-get install -y --no-install-recommends \
   unzip \
-  unixodbc-dev \
   unixodbc \
+  unixodbc-dev \
   libpng-dev \
   libpq-dev \
   libzip4 \
   libzip-dev \
-  && docker-php-ext-install zip 
+  && docker-php-ext-install zip \
+  && docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr \
+  && docker-php-ext-install pdo_odbc 
 
 RUN docker-php-ext-install mysqli \
   && docker-php-ext-install pdo_mysql \
