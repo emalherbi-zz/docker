@@ -22,6 +22,9 @@ RUN echo "extension=sqlsrv.so" >> /usr/local/etc/php/php.ini
 RUN echo "extension=pdo_sqlsrv.so" >> /usr/local/etc/php/php.ini
 
 RUN echo "date.timezone = America/Sao_Paulo" >> /usr/local/etc/php/php.ini
+RUN echo "memory_limit=500M" >> /usr/local/etc/php/php.ini
+RUN echo "post_max_size=500M" >> /usr/local/etc/php/php.ini
+RUN echo "upload_max_filesize=500M" >> /usr/local/etc/php/php.ini
 
 RUN a2enmod rewrite
 
